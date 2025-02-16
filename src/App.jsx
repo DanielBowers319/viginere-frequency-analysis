@@ -93,12 +93,14 @@ function App() {
             const newGraphMap = new Map(prevData)
             //console.log('newGraphMap: ', newGraphMap)
             const outerMap = newGraphMap.get(i)
+            const cutLetterData = sortedLetterData.slice(0, 8)
             const tempData = {
-              labels: sortedLetterData.map((letter) => letter[0]),
+              labels: cutLetterData.map((letter) => letter[0]),
               datasets: [
                 {
                   label: 'Frequency',
-                  data: sortedLetterData.map((freq) => freq[1])
+                  data: cutLetterData.map((freq) => freq[1]),
+                  backgroundColor: 'rgb(0, 255, 0)'
                 }
               ]
             }
@@ -132,17 +134,36 @@ function App() {
 
 
   return (
-    <div className='bg-blue-950 min-h-screen h-full w-full flex items-center justify-center text-gray-200 overflow-y-auto '>  
+    <div className='bg-black min-h-screen h-full w-full flex items-center justify-center text-gray-200 overflow-y-auto '>  
       <div className='flex flex-col flex-grow items-center' >
-        <h1 className='mt-8' >Viginere Cipher</h1>
-        <h1>Frequency Analysis</h1>
-        <input type='number' className='text-black' placeholder='Potential Key Lengths' id='keylength-input'></input>
-        <div className='flex flex-row items-center'>
-          <button className='mr-5 bg-purple-600 p-4 text-black' onClick={updateKeyNum}>Confirm Key Length</button>
-          <h2>Warning: Updating your number of keys will delete your previous input ciphertext</h2>
-        </div>
-        <textarea id='ciphertext-input' className='text-black' placeholder='Ciphertext'></textarea>
-        <button className=' bg-purple-600 p-4 text-black mt-5' onClick={readText}>Analyze</button>
+            <h1 className='text-green-500 text-9xl animate-fadeInSlide mb-5 pt-8 font-hacker' >Viginere Cipher</h1>
+            <h1 className='text-green-500 text-9xl animate-fadeInSlide mb-5 pt-8 font-hacker' >Frequency Analysis</h1>
+                <div className='flex flex-row items-center'>
+                  <div className='flex flex-col flex-grow items-center'>
+                    <div className='flex flex-row items-center mb-5'>
+                    <input type='number'
+                    className='text-green-500 border-2 border-green-500 bg-gray-900 rounded-lg appearance-none 
+                    font-hacker text-xl
+                    placeholder:font-hacker placeholder:text-gray-600 placeholder:pl-1
+                    mt-5 pl-2 min-w-[200px]'
+                    placeholder='Potential Key Lengths'
+                    id='keylength-input'></input>
+                    <button className='mr-5 bg-green-500 p-4 text-black text-2xl font-hacker ml-5' onClick={updateKeyNum}>Confirm Key Length</button>
+                    </div>
+                    <h2 className='font-hacker text-lg text-green-500'>Warning: Updating your number of keys will delete your previous input ciphertext data</h2>
+                    <textarea id='ciphertext-input'
+                    className='min-h-[300px] min-w-[600px] overflow-y-scroll
+                    text-xl text-green-500 font-hacker bg-gray-900 rounded-lg border-2 border-green-500
+                    placeholder:font-hacker placeholder:text-gray-700 placeholder:pl-2
+                    pl-2 mt-5
+                    scrollbar-track-black scrollbar-thumb-green-500 scrollbar-thumb-rounded scrollbar-thin scrollbar-track-rounded' placeholder='Ciphertext'></textarea>
+                    <button className=' bg-green-500 p-4 text-black mt-5 font-hacker text-2xl' onClick={readText}>Analyze</button>
+                  </div>
+                  <div className='border border-green-500 rounded-lg ml-20 p-5 max-w-[30]'>
+                    <h1 className='text-center text-green-500 text-3xl font-hacker'>How frequency analysis works</h1>
+                    <p>erfdsgvvgrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</p>
+                  </div>
+                </div>
         <div>{components}</div>
       </div>
     </div>

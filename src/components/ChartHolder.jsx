@@ -26,8 +26,8 @@ function ChartHolder({ mapPtr, size }) {
 
   return (
     <div className='flex flex-col items-center mt-7'>
-      <h1 className="mb-5" >Frequencys for key length {size}</h1>
-      <h1 className="mb-5" >Guess for key of length {size}: {guess}</h1>
+      <h1 className="mb-5 font-hacker text-2xl" >Frequencys for key length {size}</h1>
+      <h1 className="mb-5 font-hacker text-2xl" >Guess for key of length {size}: {guess}</h1>
         {rows.map((row, index) => (
           <div key={index} className="flex flex-row items-center mb-4" >
             {row}

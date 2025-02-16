@@ -5,7 +5,7 @@ import chartOptions from '../assets/chartOptions'
 
 function BarChart({ chartData, idx }) {
   return(
-  <div className='ml-6' style={ {width: 300} }>
+  <div className='ml-6' style={ {width: 400} }>
     <Bar data={chartData} options={chartOptions(idx)}/>
   </div>
   )
